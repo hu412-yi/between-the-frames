@@ -181,7 +181,7 @@ input[type=range]{width:100%;accent-color:var(--bamboo);margin:0}
 .seg button{flex:1;border:0;background:none;padding:6px 8px;cursor:pointer;color:var(--ink-3);line-height:var(--lh)}
 .seg button+button{border-left:1px solid var(--rule)}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.plan{position:relative;aspect-ratio:13/14.4;border:1px solid var(--rule-2);background:var(--paper);touch-action:none}
+.plan{position:relative;aspect-ratio:13/15.4;border:1px solid var(--rule-2);background:var(--paper);touch-action:none}
 .plan svg{width:100%;height:100%;display:block}
 .plan .tag{position:absolute;top:8px;left:10px;font-size:var(--fs-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
 .plan text{font-family:var(--f-text);font-size:.42px;fill:var(--ink-3);letter-spacing:.04em}
@@ -243,6 +243,7 @@ footer{border-top:1px solid var(--rule);padding-block:calc(var(--u)*4) calc(var(
 
 /* ===== v7: outline motif, heroes, tours, garden numbers ===== */
 .nav ol{gap:clamp(8px,1.6vw,24px)}
+.ic{width:16px;height:16px;flex:none}.ic path{fill:none;stroke:currentColor;stroke-width:1.3;vector-effect:non-scaling-stroke}
 .nav ol a .ic{width:15px;height:15px;flex:none;align-self:center}
 .nav ol a .ic path{fill:none;stroke:currentColor;stroke-width:1.3;vector-effect:non-scaling-stroke}
 .nav ol a.on .ic path{stroke:var(--bamboo)}
@@ -676,14 +677,14 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
     <section class="g proto" aria-labelledby="p2t">
       <div class="c-label"><span class="lbl">Prototype · 3D</span><h3 id="p2t">Walk Past the Opening</h3><p>Walk along the path in front of a garden wall: drag the view, use the slider or press Walk. Bamboo, a rock and the garden beyond sit at different depths, so they slide past each other through the opening. The plan shows your line of sight.</p>
         <div class="ctl" id="shapeList" role="group" aria-label="Opening shape"></div>
-        <div class="seg three" role="group" aria-label="Opening type"><button data-kind="window" aria-pressed="false">Empty window</button><button data-kind="leak" aria-pressed="true">Leak window</button><button data-kind="door" aria-pressed="false">Doorway</button></div>
+        <div class="seg three" role="group" aria-label="Opening type"><button data-kind="window" aria-pressed="false">Empty</button><button data-kind="leak" aria-pressed="true">Leak</button><button data-kind="door" aria-pressed="false">Door</button></div>
         <div class="range"><div class="row"><span>Your position</span><b id="posVal">0.0 m</b></div><input type="range" id="pos" min="-500" max="500" value="140" aria-label="Your position along the path"></div>
         <button class="btn walkbtn" id="walkBtn" aria-pressed="false"><span id="walkLbl">Walk the path</span><span>→</span></button>
         <div class="range"><div class="row"><span>Reveal depth</span><b id="depthVal">40 cm</b></div><input type="range" id="depth" min="5" max="90" value="40" aria-label="Reveal depth in centimetres"></div>
       </div>
       <div class="c-text"><div class="stage" id="wallStage"><span class="tag">Your view · eye height 1.6 m · drag to walk</span></div></div>
       <div class="c-side info">
-        <div class="plan"><svg id="plan" viewBox="-6.5 -9.6 13 14.4" role="img" aria-label="Plan of the wall, opening, path and sightlines"></svg><span class="tag">Plan</span></div>
+        <div class="plan"><svg id="plan" viewBox="-6.5 -9.6 13 15.4" role="img" aria-label="Plan of the wall, opening, path and sightlines"></svg><span class="tag">Plan</span></div>
         <div class="kv"><div><span>Garden seen</span><span class="num" id="vis">—</span></div><div><span>Thin wall</span><span class="num" id="visThin">—</span></div><div><span>Reveal hides</span><span class="num" id="hide">—</span></div></div>
         <div id="shapeInfo" class="info" aria-live="polite"></div>
       </div>
@@ -1315,7 +1316,7 @@ const icon=r=>`<svg viewBox="-1.1 -1.1 2.2 2.2" aria-hidden="true"><path d="${pa
 inits['story-2']=()=>{
   const list=$('#shapeList');list.innerHTML=SHAPES.map(s=>`<button class="opt" data-shape="${s.id}">${icon(s.r)}${s.name}</button>`).join('');
   const info=$('#shapeInfo'),posEl=$('#pos'),dEl=$('#depth'),plan=$('#plan');
-  const EYE=1.6,PATHZ=3.2,GARDEN=8,WALLW=13;let kind='leak';
+  const EYE=1.6,PATHZ=4.2,GARDEN=8,WALLW=13;let kind='leak';
   const geom=()=>{const s=shapeOf(S.shape);if(kind!=='door'){const sc=.78;return{s,sc,cy:EYE}}const sc=1.15;return{s,sc,cy:s.bb[3]*sc+.06}};
   function halfWidthAtEye(){const {s,sc,cy}=geom();const yRel=-(EYE-cy)/sc;const p=polyR(s.r,1,2);let xs=[];
     for(let i=0;i<p.length;i++){const a=p[i],b=p[(i+1)%p.length];if((a[1]-yRel)*(b[1]-yRel)<=0&&a[1]!==b[1]){const t=(yRel-a[1])/(b[1]-a[1]);xs.push(a[0]+(b[0]-a[0])*t)}}
@@ -1527,7 +1528,7 @@ inits['corridor']=()=>{
   if(!HAS3D){nogl(stage);recB.hidden=true;addEventListener('scroll',()=>{if(current==='corridor')ui(progress(),0,-1)},{passive:true});return}
   const o=makeScene(stage,{route:'corridor',fov:54,shadows:true,bg:0xE6E2D7});const {scene,camera}=o;
   o.renderer.domElement.style.cursor='default';scene.fog=new THREE.Fog(0xE6E2D7,22,60);
-  scene.add(new THREE.HemisphereLight(0xf6f1e6,0x8d8678,.62));
+  scene.add(new THREE.HemisphereLight(0xf6f1e6,0x8d8678,.8));const fill=new THREE.DirectionalLight(0xfff6ea,.5);fill.position.set(6,5,12);scene.add(fill);
   const sun=new THREE.DirectionalLight(0xffe6c4,1.35);sun.position.set(-5,8.5,-8);sun.target.position.set(0,0,1.4);sun.castShadow=true;sun.shadow.mapSize.set(4096,2048);sun.shadow.bias=-.0004;sun.shadow.normalBias=.015;
   const sc=sun.shadow.camera;sc.left=-19;sc.right=19;sc.top=7;sc.bottom=-7;sc.near=1;sc.far=40;sc.updateProjectionMatrix();scene.add(sun,sun.target);
   const L=34,H=3.3,T=.3,CY=1.55,SC=[.66,.68,.7,.62,.74];
@@ -1537,10 +1538,10 @@ inits['corridor']=()=>{
   const wg=new THREE.ExtrudeGeometry(sh,{depth:T,bevelEnabled:false,curveSegments:4});wg.translate(0,0,-T/2);const wall=new THREE.Mesh(wg,wallM);wall.castShadow=wall.receiveShadow=true;scene.add(wall);
   addCoping(scene,L+.3,H,T);
   const timber=new THREE.MeshStandardMaterial({color:0x2D2823,roughness:.7});
-  CORW.forEach((w,i)=>{if(w.pat!=='open')scene.add(latticeMesh(shapeOf(w.shape).r,SC[i],XS[i],CY,w.pat,timber,.045,.09))});
+  CORW.forEach((w,i)=>{if(w.pat!=='open')scene.add(latticeMesh(shapeOf(w.shape).r,SC[i],XS[i],CY,w.pat,timber,.032,.08))});
   // corridor: floor, roof, columns, bench
   const floor=new THREE.Mesh(new THREE.PlaneGeometry(L+2,3.2),new THREE.MeshStandardMaterial({map:pavingTex([(L+2)/3.2,1]),roughness:.92}));floor.rotation.x=-Math.PI/2;floor.position.set(0,0,1.6);floor.receiveShadow=true;scene.add(floor);
-  const lac=new THREE.MeshStandardMaterial({color:0x5A3125,roughness:.6}),dark=new THREE.MeshStandardMaterial({color:0x3B332D,roughness:.9,side:THREE.DoubleSide});
+  const lac=new THREE.MeshStandardMaterial({color:0x45201A,roughness:.6}),dark=new THREE.MeshStandardMaterial({color:0x3B332D,roughness:.9,side:THREE.DoubleSide});
   const roof=new THREE.Mesh(new THREE.BoxGeometry(L+2,.08,3.5),dark);roof.position.set(0,3.12,1.55);roof.castShadow=true;roof.receiveShadow=true;scene.add(roof);
   const beam=new THREE.Mesh(new THREE.BoxGeometry(L+2,.2,.16),lac);beam.position.set(0,2.95,2.95);beam.castShadow=true;scene.add(beam);
   const nC=12,cols=new THREE.InstancedMesh(new THREE.CylinderGeometry(.085,.095,2.95,14),lac,nC),plin=new THREE.InstancedMesh(new THREE.CylinderGeometry(.16,.18,.12,14),new THREE.MeshStandardMaterial({color:0x8D897F,roughness:.9}),nC),m4=new THREE.Matrix4();
@@ -1563,7 +1564,7 @@ inits['corridor']=()=>{
     const a=clamp(u/WALK,0,1),xx=lerp(X0,XE,a);
     let f=0,ni=0;XS.forEach((X,i)=>{const fi=Math.exp(-Math.pow((xx-X)/1.8,2));if(fi>f){f=fi;ni=i}});
     const fin=ss(WALK,.95,u);f=Math.max(f*.82,fin);
-    camera.position.set(xx,1.6-.05*fin,lerp(lerp(1.75,2.1,f),2.55,fin));
+    camera.position.set(xx,1.6-.05*fin,lerp(lerp(1.8,2.5,f),2.75,fin));
     fw.set(xx+5,1.5,1.7);wt.set(XS[ni],CY,-1.6);tgt.lerpVectors(fw,wt,f);camera.lookAt(tgt);
     ui(u,f,ni);return true};
   addEventListener('scroll',()=>{if(current==='corridor')o.dirty=true},{passive:true});
