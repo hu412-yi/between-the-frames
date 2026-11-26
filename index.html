@@ -4,6 +4,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400&text=%E6%B2%A7%E6%B5%AA%E4%BA%AD%E7%BD%91%E5%B8%88%E5%9B%AD%E6%8B%99%E6%94%BF%E5%9B%AD%E7%95%99%E5%9B%AD%E8%80%A6%E5%9B%AD&display=swap">
 <!-- Adobe Kis Display / Adobe Kis are used first wherever they are installed or served by an Adobe Fonts web project.
      Libre Caslon Display / Text are the stand-ins for viewers without Kis. -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap">
@@ -428,6 +429,8 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
 .rg .none{font-size:var(--fs-s);color:var(--ink-3);margin-top:calc(var(--u)*3)}
 .rg:target{background:linear-gradient(90deg,transparent,var(--paper-2) 30%,transparent)}
 .seg.three button{font-size:var(--fs-s)}
+.hero-img.fit{inset:0;width:100%;height:100%}.hero-img.fit img{position:absolute;max-width:none;object-fit:fill}.b-fig{overflow:hidden;background:var(--paper)}
+.zh,.tc .zh,.rg h2 .zh{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong",serif;font-weight:400;letter-spacing:.12em}
 .hero .ln,.hero .ln2{stroke-dasharray:1;stroke-dashoffset:0}.hero .ln.drawn{animation:drawln 2.2s var(--ease) both}.hero .ln2.drawn{animation:drawln 2.6s .3s var(--ease) both}@keyframes drawln{from{stroke-dashoffset:1}}
 .tour-box .mk{transform:scale(var(--iz,1))}.tour-box .mk.on{transform:scale(calc(var(--iz,1)*1.22))}
 .tc>.tn .lbl{margin:0}
@@ -555,9 +558,9 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
 
 <!-- ======================= STORY I ======================= -->
 <main class="view" data-route="story-1" id="v-story-1">
-  <section class="hero" data-shape="octagon" data-cx=".64" data-cy=".5" data-r=".36" data-veil=".9">
+  <section class="hero" data-shape="octagon" data-cx=".63" data-cy=".5" data-r=".34" data-veil="1">
       <div class="hero-stick">
-        <div class="hero-img"><img src="web-lingering-peak.jpg" alt="Tall perforated rock and tiled roofs in the Lingering Garden" width="1600" height="1200"></div>
+        <div class="hero-img fit"><img src="web-octagon-lingering.jpg" alt="Octagonal opening with a deep stone reveal, bamboo and a hall beyond, Lingering Garden" width="1065" height="1600" data-fx="0.46" data-fy="0.477" data-fr="0.3"></div>
         <svg class="veil" aria-hidden="true"><path class="vl" fill-rule="evenodd"/><path class="ln2"/><path class="ln"/></svg>
         <div class="hero-txt">
           <div class="h-kick" data-fade><span class="lbl">Story one · History · The octagon</span></div>
@@ -631,9 +634,9 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
 
 <!-- ======================= STORY II ======================= -->
 <main class="view" data-route="story-2" id="v-story-2">
-  <section class="hero" data-shape="circle" data-cx=".64" data-cy=".5" data-r=".36" data-veil=".9">
+  <section class="hero" data-shape="circle" data-cx=".63" data-cy=".5" data-r=".34" data-veil="1">
       <div class="hero-stick">
-        <div class="hero-img"><img src="web-moon-lingering.jpg" alt="Moon gate with rocks and grasses beyond, Lingering Garden" width="1600" height="1160"></div>
+        <div class="hero-img fit"><img src="web-moon-lingering.jpg" alt="Moon gate with rocks and grasses beyond, Lingering Garden" width="1600" height="1160" data-fx="0.465" data-fy="0.505" data-fr="0.331"></div>
         <svg class="veil" aria-hidden="true"><path class="vl" fill-rule="evenodd"/><path class="ln2"/><path class="ln"/></svg>
         <div class="hero-txt">
           <div class="h-kick" data-fade><span class="lbl">Story two · Form · The circle</span></div>
@@ -716,9 +719,9 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
 
 <!-- ======================= STORY III ======================= -->
 <main class="view" data-route="story-3" id="v-story-3">
-  <section class="hero" data-shape="begonia" data-cx=".64" data-cy=".5" data-r=".36" data-veil=".9">
+  <section class="hero" data-shape="begonia" data-cx=".63" data-cy=".5" data-r=".34" data-veil="1">
       <div class="hero-stick">
-        <div class="hero-img"><img src="web-circle-lattice.jpg" alt="Round plaster leak window with bamboo behind, Master of the Nets Garden" width="1600" height="1200"></div>
+        <div class="hero-img fit"><img src="win-begonia-gate.jpg" alt="Four-lobed begonia doorway in a white wall, bamboo beyond" width="581" height="745" data-fx="0.56" data-fy="0.66" data-fr="0.205"></div>
         <svg class="veil" aria-hidden="true"><path class="vl" fill-rule="evenodd"/><path class="ln2"/><path class="ln"/></svg>
         <div class="hero-txt">
           <div class="h-kick" data-fade><span class="lbl">Story three · Construction · The begonia</span></div>
@@ -807,9 +810,9 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
 
 <!-- ======================= STORY IV ======================= -->
 <main class="view" data-route="story-4" id="v-story-4">
-  <section class="hero" data-shape="square" data-cx=".64" data-cy=".5" data-r=".36" data-veil=".9">
+  <section class="hero" data-shape="square" data-cx=".63" data-cy=".5" data-r=".34" data-veil="1">
       <div class="hero-stick">
-        <div class="hero-img"><img src="web-iceray-nets.jpg" alt="Round window with ice-ray lattice framing rocks, black and white, Master of the Nets Garden" width="1600" height="1200"></div>
+        <div class="hero-img fit"><img src="win-fret.jpg" alt="Square leak window with a fret border under a tiled coping, winter jasmine behind" width="582" height="1023" data-fx="0.5" data-fy="0.655" data-fr="0.32"></div>
         <svg class="veil" aria-hidden="true"><path class="vl" fill-rule="evenodd"/><path class="ln2"/><path class="ln"/></svg>
         <div class="hero-txt">
           <div class="h-kick" data-fade><span class="lbl">Story four · Light · The square</span></div>
@@ -879,9 +882,9 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
 
 <!-- ======================= STORY V ======================= -->
 <main class="view" data-route="story-5" id="v-story-5">
-  <section class="hero" data-shape="vase" data-cx=".64" data-cy=".5" data-r=".36" data-veil=".9">
+  <section class="hero" data-shape="vase" data-cx=".63" data-cy=".5" data-r=".34" data-veil="1">
       <div class="hero-stick">
-        <div class="hero-img"><img src="web-ouyuan-moongate.jpg" alt="Moon gate beneath a pine at the Couple’s Retreat Garden" width="1600" height="1064"></div>
+        <div class="hero-img fit"><img src="web-vase-ouyuan.jpg" alt="Vase-shaped doorway in a white wall, Couple’s Retreat Garden" width="1200" height="1600" data-fx="0.5" data-fy="0.575" data-fr="0.345"></div>
         <svg class="veil" aria-hidden="true"><path class="vl" fill-rule="evenodd"/><path class="ln2"/><path class="ln"/></svg>
         <div class="hero-txt">
           <div class="h-kick" data-fade><span class="lbl">Story five · Perception · The vase</span></div>
@@ -1154,11 +1157,11 @@ const CAT={};Object.entries(CATG).forEach(([g,list])=>list.forEach(([f,t,c],i)=>
 const catChip=src=>{const k=CAT[src];if(!k)return '';return `<a class="cat${isNaN(+k.g)?' b':''}" href="#garden-${k.g}" title="${k.t}"><i>${k.g}</i>.${k.no}</a>`};
 const gName=g=>{const x=GARDENS.find(G=>G.n==g);return x?x.name:g==='B'?'Plates from the book':'Reference objects'};
 const STORIES=[
- {r:'story-1',shape:'octagon',theme:'History',t:'Origins and Owners',img:'web-lingering-peak.jpg',d:'Nine centuries of retreat, ownership and repair, read through one painted leaf and a timeline.',g:[1,2,3,4]},
- {r:'story-2',shape:'circle',theme:'Form',t:'Wall and View',img:'web-moon-lingering.jpg',d:'How an outline cut into plaster edits the garden. Walk past an opening in 3D.',g:[3,4,5]},
- {r:'story-3',shape:'begonia',theme:'Construction',t:'Materials and Making',img:'web-circle-lattice.jpg',d:'Brick, tile, timber and shell. Take a window apart layer by layer.',g:[2]},
- {r:'story-4',shape:'square',theme:'Light',t:'Light and Shadow',img:'web-iceray-nets.jpg',d:'The pattern that appears twice. Move the sun across a latticed hall.',g:[2,3]},
- {r:'story-5',shape:'vase',theme:'Perception',t:'A Changing View',img:'web-ouyuan-moongate.jpg',d:'Borrowed scenery and the moving eye. Compose a view and keep it.',g:[3,4,5]}
+ {r:'story-1',shape:'octagon',theme:'History',t:'Origins and Owners',img:'web-octagon-lingering.jpg',fit:[.46,.477,.30,1065,1600],d:'Nine centuries of retreat, ownership and repair, read through one painted leaf and a timeline.',g:[1,2,3,4]},
+ {r:'story-2',shape:'circle',theme:'Form',t:'Wall and View',img:'web-moon-lingering.jpg',fit:[.465,.505,.331,1600,1160],d:'How an outline cut into plaster edits the garden. Walk past an opening in 3D.',g:[3,4,5]},
+ {r:'story-3',shape:'begonia',theme:'Construction',t:'Materials and Making',img:'win-begonia-gate.jpg',fit:[.56,.66,.205,581,745],d:'Brick, tile, timber and shell. Take a window apart layer by layer.',g:[2]},
+ {r:'story-4',shape:'square',theme:'Light',t:'Light and Shadow',img:'win-fret.jpg',fit:[.5,.655,.32,582,1023],d:'The pattern that appears twice. Move the sun across a latticed hall.',g:[2,3]},
+ {r:'story-5',shape:'vase',theme:'Perception',t:'A Changing View',img:'web-vase-ouyuan.jpg',fit:[.5,.575,.345,1200,1600],d:'Borrowed scenery and the moving eye. Compose a view and keep it.',g:[3,4,5]}
 ];
 const outlineD=(s,cx,cy,R,step=6)=>{let d='';for(let i=0;i<N;i+=step)d+=(i?'L':'M')+(cx+s.r[i]*R*COS[i]).toFixed(1)+' '+(cy+s.r[i]*R*SIN[i]).toFixed(1);return d+'Z'};
 const ico=id=>`<svg class="ic" viewBox="-1.2 -1.2 2.4 2.4" aria-hidden="true"><path d="${pathR(shapeOf(id).r)}"/></svg>`;
@@ -1172,7 +1175,7 @@ if(matchMedia('(pointer:fine)').matches&&!RM)addEventListener('pointermove',e=>{
 function initHero(sec){
   const s=shapeOf(sec.dataset.shape),stick=sec.querySelector('.hero-stick'),vl=sec.querySelector('.vl'),ln=sec.querySelector('.ln'),ln2=sec.querySelector('.ln2'),img=sec.querySelector('.hero-img');
   const fades=[...sec.querySelectorAll('[data-fade]')],rise=sec.querySelector('[data-rise]'),sides=[...sec.querySelectorAll('[data-side]')],after=sec.querySelector('[data-after]');
-  const veil=+sec.dataset.veil||1,maxR=Math.max(...s.r);let hx=0;for(let i=0;i<N;i++)hx=Math.max(hx,Math.abs(s.r[i]*COS[i]));let cx=0,cy=0;
+  const veil=+sec.dataset.veil||1,maxR=Math.max(...s.r);const fimg=img.querySelector('img'),fit=fimg&&fimg.dataset.fr?{fx:+fimg.dataset.fx,fy:+fimg.dataset.fy,fr:+fimg.dataset.fr,iw:+fimg.getAttribute('width'),ih:+fimg.getAttribute('height')}:null;let hx=0;for(let i=0;i<N;i++)hx=Math.max(hx,Math.abs(s.r[i]*COS[i]));let cx=0,cy=0;
   [ln,ln2].forEach(p=>p.setAttribute('pathLength','1'));
   const h={sec,route:sec.closest('.view').dataset.route,draw(){
     const w=stick.clientWidth,hh=stick.clientHeight;if(!w||!hh)return false;const mob=w<760;
@@ -1186,7 +1189,8 @@ function initHero(sec){
     vl.setAttribute('d',`M0 0H${w}V${hh}H0Z`+outlineD(s,X,Y,R0*k));vl.style.opacity=veil;
     ln.setAttribute('d',outlineD(s,X,Y,R0*k,4));ln2.setAttribute('d',outlineD(s,X+cx*10,Y+cy*8,R0*k*1.045,4));
     ln.style.opacity=1-ss(.62,.95,p);ln2.style.opacity=(.5*(1-ss(.3,.7,p))).toFixed(3);
-    img.style.transform=`translate(${(-cx*14).toFixed(1)}px,${(-cy*10-p*hh*.04).toFixed(1)}px) scale(${(1.02+.04*(1-e)).toFixed(3)})`;
+    if(fit){const sc=R0*k/(fit.fr*fit.ih),W=fit.iw*sc,Hh=fit.ih*sc;fimg.style.width=W.toFixed(1)+'px';fimg.style.height=Hh.toFixed(1)+'px';fimg.style.left=(X-cx*7-fit.fx*W).toFixed(1)+'px';fimg.style.top=(Y-cy*5-fit.fy*Hh).toFixed(1)+'px'}
+    else img.style.transform=`translate(${(-cx*14).toFixed(1)}px,${(-cy*10-p*hh*.04).toFixed(1)}px) scale(${(1.02+.04*(1-e)).toFixed(3)})`;
     fades.forEach(f=>f.style.opacity=(1-ss(.02,.22,p)).toFixed(3));
     if(rise){rise.style.transform=`translateY(${(-ss(.05,.5,p)*14).toFixed(2)}vh)`;rise.style.opacity=(1-ss(.18,.46,p)).toFixed(3)}
     sides.forEach(t=>{const d=+t.dataset.side;t.style.transform=`${mob?'':'translateY(-50%) '}translateX(${(d*e*e*45).toFixed(2)}vw)`;t.style.opacity=(1-ss(.12,.42,p)).toFixed(3)});
@@ -1223,9 +1227,10 @@ addEventListener('scroll',()=>TOURS.forEach(o=>{if(o.route===current)o.check()})
 document.addEventListener('routechange',e=>requestAnimationFrame(()=>TOURS.forEach(o=>{if(o.route===e.detail){o.fit();o.check()}})));
 
 /* ============ HOME ============ */
+const bandFit=s=>{const [fx,fy,fr,iw,ih]=s.fit,mR=Math.max(...shapeOf(s.shape).r),R=128/mR,Hh=R/fr,W=Hh*iw/ih;return `inset:auto;max-width:none;left:${((200-fx*W)/4).toFixed(2)}%;top:${((150-fy*Hh)/3).toFixed(2)}%;width:${(W/4).toFixed(2)}%;height:${(Hh/3).toFixed(2)}%`};
 inits['home']=()=>{
   $('#bands').innerHTML=STORIES.map(s=>{const sh=shapeOf(s.shape),mR=Math.max(...sh.r);return `<a class="band rv" href="#${s.r}">
-    <div class="b-fig"><img src="${s.img}" alt="" loading="lazy"><svg viewBox="0 0 400 300" aria-hidden="true"><path class="vl" fill-rule="evenodd" d="M-1 -1H401V301H-1Z${outlineD(sh,200,150,128/mR,4)}"/><path class="ln" d="${outlineD(sh,200,150,128/mR,4)}"/></svg></div>
+    <div class="b-fig"><img src="${s.img}" alt="" loading="lazy" style="${bandFit(s)}"><svg viewBox="0 0 400 300" aria-hidden="true"><path class="vl" fill-rule="evenodd" d="M-1 -1H401V301H-1Z${outlineD(sh,200,150,128/mR,4)}"/><path class="ln" d="${outlineD(sh,200,150,128/mR,4)}"/></svg></div>
     <div class="b-txt"><span class="lbl">${ico(s.shape)}${s.theme} · the ${sh.name.toLowerCase()}</span><h3>${s.t}</h3><p>${s.d}</p><p class="lbl" style="display:flex;gap:4px;align-items:center">Gardens ${s.g.map(g=>`<span class="gn">${g}</span>`).join('')}</p><span class="go">Enter the story →</span></div></a>`}).join('');
   $('#codaRow').innerHTML=STORIES.map(s=>`<svg viewBox="-1.2 -1.2 2.4 2.4"><path d="${pathR(shapeOf(s.shape).r)}"/></svg>`).join('');
   revealSetup();
