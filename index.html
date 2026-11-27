@@ -429,6 +429,7 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
 .rg .none{font-size:var(--fs-s);color:var(--ink-3);margin-top:calc(var(--u)*3)}
 .rg:target{background:linear-gradient(90deg,transparent,var(--paper-2) 30%,transparent)}
 .seg.three button{font-size:var(--fs-s)}
+.c5h{margin:calc(var(--u)*3) 0 8px}.ico-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.ico-row.four{grid-template-columns:repeat(4,minmax(0,1fr))}.ico-row button{border:1px solid var(--rule);background:none;padding:8px 2px 6px;display:flex;flex-direction:column;align-items:center;gap:4px;font-family:var(--f-text);font-size:.72rem;line-height:1.2;color:var(--ink-2);cursor:pointer;text-align:center}.ico-row button:hover{border-color:var(--ink-3)}.ico-row button[aria-pressed="true"]{border-color:var(--ink);background:var(--paper-2);color:var(--ink)}.ico-row svg{width:28px;height:28px;overflow:visible}.ico-row path,.ico-row circle{fill:none;stroke:currentColor;stroke-width:1.2;vector-effect:non-scaling-stroke}
 .hero-img.fit{inset:0;width:100%;height:100%}.hero-img.fit img{position:absolute;max-width:none;object-fit:fill}.b-fig{overflow:hidden;background:var(--paper)}
 .zh,.tc .zh,.rg h2 .zh{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong",serif;font-weight:400;letter-spacing:.12em}
 .hero .ln,.hero .ln2{stroke-dasharray:1;stroke-dashoffset:0}.hero .ln.drawn{animation:drawln 2.2s var(--ease) both}.hero .ln2.drawn{animation:drawln 2.6s .3s var(--ease) both}@keyframes drawln{from{stroke-dashoffset:1}}
@@ -925,8 +926,10 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
     </div>
 
     <section class="g proto" aria-labelledby="p5t">
-      <div class="c-label"><span class="lbl">Prototype</span><h3 id="p5t">Compose a View</h3><p>The wall and your window stay fixed. Drag the garden behind them to change what the opening admits. Then reveal the whole scene to compare.</p>
-        <div class="ctl" id="viewList" role="group" aria-label="Garden view"></div>
+      <div class="c-label"><span class="lbl">Prototype</span><h3 id="p5t">Compose a View</h3><p>Choose a window shape, a lattice and a garden. Then drag the garden behind the wall to change what the opening admits, and reveal the whole scene to compare.</p>
+        <p class="lbl c5h">Window</p><div class="ico-row" id="v5Shape" role="group" aria-label="Window shape"></div>
+        <p class="lbl c5h">Lattice</p><div class="ico-row four" id="v5Pat" role="group" aria-label="Lattice pattern"></div>
+        <p class="lbl c5h">Garden</p><div class="ctl" id="viewList" role="group" aria-label="Garden view"></div>
       </div>
       <div class="c-text"><div class="stage" id="vstage" style="aspect-ratio:1"><canvas id="vcanvas" tabindex="0" aria-label="Garden seen through your window. Drag or use arrow keys to move the landscape."></canvas><span class="tag">Drag to compose</span></div></div>
       <div class="c-side info">
@@ -1471,6 +1474,12 @@ inits['story-5']=()=>{
   cv.addEventListener('pointermove',e=>{if(!drag)return;const R=Math.min(CW,CH)*.36;S.ox=drag.ox+(e.clientX-drag.x)/R;S.oy=drag.oy+(e.clientY-drag.y)/R;clampOff();drawStage()});
   const end=()=>drag=null;cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
   cv.addEventListener('keydown',e=>{const k={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];if(!k||revT)return;e.preventDefault();S.ox+=k[0]*.06;S.oy+=k[1]*.06;clampOff();drawStage()});
+  $('#v5Shape').innerHTML=SHAPES.map(s=>`<button type="button" data-s5="${s.id}">${icon(s.r)}<span>${s.name}</span></button>`).join('');
+  $('#v5Pat').innerHTML=PATTERNS.map(p=>`<button type="button" data-p5="${p.id}"><svg viewBox="-1.1 -1.1 2.2 2.2" aria-hidden="true"><clipPath id="cp5${p.id}"><circle r="1"/></clipPath><path d="${p.d}" clip-path="url(#cp5${p.id})"/><circle r="1"/></svg><span>${p.name}</span></button>`).join('');
+  const mark5=()=>{$$('[data-s5]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s5===S.shape));$$('[data-p5]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p5===S.pattern))};
+  $('#v5Shape').addEventListener('click',e=>{const b=e.target.closest('[data-s5]');if(!b)return;S.shape=b.dataset.s5;S.ox=0;S.oy=0;emit();mark5();drawStage()});
+  $('#v5Pat').addEventListener('click',e=>{const b=e.target.closest('[data-p5]');if(!b)return;S.pattern=b.dataset.p5;emit();mark5();drawStage()});
+  listeners.push(mark5);mark5();
   $('#viewList').innerHTML=VIEWS.map(v=>`<button class="opt" data-view="${v.id}"><img src="${v.src}" alt="" loading="lazy">${v.name}</button>`).join('');
   const setView=id=>{S.view=id;S.ox=0;S.oy=0;clampOff();$$('[data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===id));$('#viewCap').innerHTML=catChip(viewOf(id).src)+viewOf(id).cap;emit();drawStage()};
   $('#viewList').addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)setView(b.dataset.view)});
