@@ -429,6 +429,7 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
 .rg .none{font-size:var(--fs-s);color:var(--ink-3);margin-top:calc(var(--u)*3)}
 .rg:target{background:linear-gradient(90deg,transparent,var(--paper-2) 30%,transparent)}
 .seg.three button{font-size:var(--fs-s)}
+.save5{margin-top:calc(var(--u)*4);padding-top:calc(var(--u)*3);border-top:1px solid var(--ink)}.plate5 img{width:100%;margin-top:12px;border:1px solid var(--rule);box-shadow:0 8px 24px rgba(0,0,0,.08)}
 .c5h{margin:calc(var(--u)*3) 0 8px}.ico-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.ico-row.four{grid-template-columns:repeat(4,minmax(0,1fr))}.ico-row button{border:1px solid var(--rule);background:none;padding:8px 2px 6px;display:flex;flex-direction:column;align-items:center;gap:4px;font-family:var(--f-text);font-size:.72rem;line-height:1.2;color:var(--ink-2);cursor:pointer;text-align:center}.ico-row button:hover{border-color:var(--ink-3)}.ico-row button[aria-pressed="true"]{border-color:var(--ink);background:var(--paper-2);color:var(--ink)}.ico-row svg{width:28px;height:28px;overflow:visible}.ico-row path,.ico-row circle{fill:none;stroke:currentColor;stroke-width:1.2;vector-effect:non-scaling-stroke}
 .hero-img.fit{inset:0;width:100%;height:100%}.hero-img.fit img{position:absolute;max-width:none;object-fit:fill}.b-fig{overflow:hidden;background:var(--paper)}
 .zh,.tc .zh,.rg h2 .zh{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong",serif;font-weight:400;letter-spacing:.12em}
@@ -925,7 +926,7 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
       <aside class="c-side"><figure class="fig"><div class="frame" data-note="The interruption makes the continuation noticeable."><img src="frame-magnolia.jpg" alt="Magnolia seen through a dark timber window frame" loading="lazy"></div><figcaption class="cap">Magnolia through a timber frame. From the book.</figcaption></figure></aside>
     </div>
 
-    <section class="g proto" aria-labelledby="p5t">
+    <section class="g proto" id="capture" aria-labelledby="p5t">
       <div class="c-label"><span class="lbl">Prototype</span><h3 id="p5t">Compose a View</h3><p>Choose a window shape, a lattice and a garden. Then drag the garden behind the wall to change what the opening admits, and reveal the whole scene to compare.</p>
         <p class="lbl c5h">Window</p><div class="ico-row" id="v5Shape" role="group" aria-label="Window shape"></div>
         <p class="lbl c5h">Lattice</p><div class="ico-row four" id="v5Pat" role="group" aria-label="Lattice pattern"></div>
@@ -936,6 +937,11 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
         <button class="btn" id="revealBtn" aria-pressed="false"><span id="revealLbl">Reveal the Whole</span><span>↗</span></button>
         <div class="kv"><div><span>Framed</span><span class="num" id="roFrac">—</span></div><div><span>Window</span><span id="roWin">—</span></div></div>
         <p class="cap" id="viewCap" style="margin:0"></p>
+        <div class="save5"><span class="lbl">Save your view</span><p class="cap" style="margin:6px 0 12px">Enter this composition in the archive as a numbered plate.</p>
+          <div style="display:flex;flex-direction:column;gap:8px"><button class="btn" id="captureBtn">Capture Your View<span>◎</span></button><button class="btn" id="dlBtn" disabled>Download PNG<span>↓</span></button></div>
+          <p class="status" id="dlStatus" aria-live="polite"></p>
+          <div class="plate5"><div id="capPh" hidden></div><img id="capImg" alt="Your archive plate" hidden></div>
+          <div hidden><span id="sumShape"></span><span id="sumPat"></span><span id="sumView"></span></div></div>
       </div>
     </section>
 
@@ -953,15 +959,6 @@ svg.map .sc line{stroke:#5B5A53;stroke-width:1}
       <aside class="c-side"><figure class="fig"><div class="frame" data-note="Visitors along the hall have become part of the view."><img src="web-hag-hall.jpg" alt="Hall above lotus leaves with visitors, Humble Administrator's Garden" loading="lazy"></div><figcaption class="cap">Humble Administrator’s Garden. Photograph: Ray in Manila, CC BY 2.0.</figcaption></figure></aside>
     </div>
 
-    <section class="g proto" id="capture" aria-labelledby="capt">
-      <div class="c-label"><span class="lbl">Final</span><h3 id="capt">Save Your View</h3><p>Your outline, lattice and composition are entered in the archive as a plate with its own number.</p>
-        <div class="kv" style="margin-bottom:16px"><div><span>Shape</span><span id="sumShape">—</span></div><div><span>Pattern</span><span id="sumPat">—</span></div><div><span>View</span><span id="sumView">—</span></div></div>
-        <div style="display:flex;flex-direction:column;gap:8px"><button class="btn" id="captureBtn">Capture Your View<span>◎</span></button><button class="btn" id="dlBtn" disabled>Download PNG<span>↓</span></button></div>
-        <p class="status" id="dlStatus" aria-live="polite"></p>
-      </div>
-      <div class="c-text"><div class="card-out"><div class="ph" id="capPh">Your archive plate appears here.</div><img id="capImg" alt="Your archive plate" hidden></div></div>
-      <div class="c-side info"><p class="d" style="font-size:1.8rem;line-height:var(--lh-d)">Where Architecture Becomes a View.</p></div>
-    </section>
     <nav class="pn" aria-label="Story navigation"><a href="#story-4"><span class="lbl">Previous story</span><b>Light and Shadow</b></a><a href="#corridor"><span class="lbl">Finale</span><b>The Corridor</b></a></nav>
   </div>
 </main>
